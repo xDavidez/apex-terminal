@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --terminal-bg: #07090c;
+  --terminal-card: #0d1117;
+  --terminal-border: #1c2331;
+  --terminal-amber: #ff9f1c;
+  --terminal-green: #00d27a;
+  --terminal-red: #ff4d5e;
+  --terminal-cyan: #00e5ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  background-color: #07090c;
+  color: #e5e7eb;
+}
+
+body {
+  background-color: #07090c;
+  color: #e5e7eb;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle institutional terminal grid background */
+.terminal-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(28, 35, 49, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 35, 49, 0.35) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.terminal-dots-bg {
+  background-image: radial-gradient(rgba(255, 159, 28, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Monospace numbers with tabular alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Bloomberg-style sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07090c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2533;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
+}
+
+/* Flashing animations for live ticks */
+@keyframes flashGreen {
+  0% {
+    background-color: rgba(0, 210, 122, 0.3);
+    color: #00d27a;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: rgba(255, 77, 94, 0.3);
+    color: #ff4d5e;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.animate-tick-green {
+  animation: flashGreen 0.6s ease-out;
+}
+
+.animate-tick-red {
+  animation: flashRed 0.6s ease-out;
+}
+
+/* Glow effects */
+.amber-glow {
+  box-shadow: 0 0 25px -4px rgba(255, 159, 28, 0.3);
+}
+
+.amber-glow-sm {
+  box-shadow: 0 0 12px -2px rgba(255, 159, 28, 0.25);
+}
+
+.green-glow-sm {
+  box-shadow: 0 0 12px -2px rgba(0, 210, 122, 0.25);
+}
+
+.cyan-glow-sm {
+  box-shadow: 0 0 12px -2px rgba(0, 229, 255, 0.25);
+}
+
+/* Scanline effect */
+.scanline-overlay {
+  background: linear-gradient(
+    rgba(18, 22, 31, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
